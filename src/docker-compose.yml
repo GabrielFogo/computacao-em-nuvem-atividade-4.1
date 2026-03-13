@@ -1,0 +1,8 @@
+services:
+  ativadade-4.1:
+    image: ${DOCKER_REGISTRY-}ativadade-4.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
