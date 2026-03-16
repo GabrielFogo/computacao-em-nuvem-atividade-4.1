@@ -11,7 +11,7 @@ Escolhi plataforma do google cloud por já ter integrado com azure algumas vezes
 ### Fluxo do projeto
 
 flowchart TD
-
+graph TB
     A[Início]
 
     A --> B[Criar produtos]
