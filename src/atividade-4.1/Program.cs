@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddDbContext<AplicacaoDbContext>(options =>
 {
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
@@ -21,6 +22,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.Configure<GoogleCloudSettings>(builder.Configuration.GetSection("GoogleCloud"));
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
 builder.Services.AddScoped<IStorageService, GoogleCloudStorageService>();
+builder.Services.AddSingleton<ApiExceptionFilter>();
 
 var app = builder.Build();
 

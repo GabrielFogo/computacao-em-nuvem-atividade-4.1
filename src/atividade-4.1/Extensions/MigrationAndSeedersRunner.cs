@@ -11,6 +11,7 @@ public static class MigrationAndSeedersRunner
 
         var db = scope.ServiceProvider.GetRequiredService<AplicacaoDbContext>();
 
+        // roda as migrations e popula a tabela
         await db.Database.MigrateAsync();
 
         await db.SaveChangesAsync();

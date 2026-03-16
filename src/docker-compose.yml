@@ -4,5 +4,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=seu-caminho-para-as-credencias
+      - ConnectionStrings__DefaultConnection=Server=mysql;Port=3306;Database=atividade;User=root;Password=root
     ports:
       - "8080:8080"
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: atividade
